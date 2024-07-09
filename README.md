@@ -19,8 +19,8 @@ For this project, you are a DevOps engineer who will be collaborating with a tea
 
 Store Docker images in ECR: 
 
-![Example-DAG](images/result.PNG)
+![Example-DAG](images/ecr_image.png)
 
 Run CodeBuild pipeline to deploy Docker image to AWS ECR:
 
-![Example-DAG](images/result.PNG)
+![Example-DAG](images/ecr_build.png)
