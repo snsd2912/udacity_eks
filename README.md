@@ -24,3 +24,6 @@ Store Docker images in ECR:
 Run CodeBuild pipeline to deploy Docker image to AWS ECR:
 
 ![Example-DAG](images/ecr_build.png)
+
+### [Kubernetes Configuration](work/k8s.md)
+

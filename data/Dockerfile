@@ -2,11 +2,8 @@ FROM python:3.10-slim-buster
 
 WORKDIR /src
 
-COPY ./app/requirements.txt requirements.txt
+COPY ./app/. .
 
 RUN pip install -r requirements.txt
 
-COPY ./app .
-
-CMD python app.py
-
+CMD [“python”, “./app.py”]
