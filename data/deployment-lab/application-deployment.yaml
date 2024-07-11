@@ -18,18 +18,6 @@ spec:
       - name: coworking
         image: 389708977224.dkr.ecr.us-east-1.amazonaws.com/coworking:latest
         imagePullPolicy: IfNotPresent
-        livenessProbe:
-          httpGet:
-            path: /health_check
-            port: 5153
-          initialDelaySeconds: 5
-          timeoutSeconds: 2
-        readinessProbe:
-          httpGet:
-            path: "/readiness_check"
-            port: 5153
-          initialDelaySeconds: 5
-          timeoutSeconds: 5
         envFrom:
         - configMapRef:
             name: coworking-cm
@@ -39,4 +27,4 @@ spec:
             secretKeyRef:
               name: coworking-secret
               key: password
-      restartPolicy: Always
+      restartPolicy: Never
