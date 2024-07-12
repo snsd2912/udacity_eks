@@ -26,5 +26,3 @@ Run CodeBuild pipeline to deploy Docker image to AWS ECR:
 ![Example-DAG](images/ecr_build.png)
 
 ### [Kubernetes Configuration](work/k8s.md)
-
-aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 389708977224.dkr.ecr.us-east-1.amazonaws.com
