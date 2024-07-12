@@ -17,7 +17,7 @@ spec:
       containers:
       - name: coworking
         image: 389708977224.dkr.ecr.us-east-1.amazonaws.com/coworking:latest
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         livenessProbe:
           httpGet:
             path: /health_check
@@ -39,4 +39,4 @@ spec:
             secretKeyRef:
               name: coworking-secret
               key: password
-      restartPolicy: Never
+      restartPolicy: Always
