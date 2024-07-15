@@ -57,3 +57,4 @@ Whenever a new change is committed to repository, it will trigger CodeBuild pipe
 - Pre-build phase: sets up a connection to ECR.
 - Build phase: builds and tags the Docker image that is created. `Dockerfile` is in `./data` folder.
 - Post-build phase: pushes Docker image into ECR.
+
