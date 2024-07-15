@@ -1,31 +1,38 @@
-# Setting Up kubeconfig File in EKS
-The AWS command line tool has a convenient method set up to set up access to your EKS cluster.
+# Kubernetes Configuration
 
-The following command will update your ~/.kube/config file:
+## Set Up a Kubernetes Cluster with EKS
+Kubernetes is available as a hosted service in AWS as Elastic Kubernetes Service (EKS).
 
-aws eks update-kubeconfig --name <CLUSTER_NAME>
-After this is set up, running kubectl commands will point to your Kubernetes cluster set up with EKS.
+- Control Plane With EKS: When you are working with EKS, you do not have access to the control plane. The control plane is entirely managed by the AWS EKS team and generally not configurable to the end user. The main takeaway is while you likely don’t need to configure the control plane, you should acknowledge its existance and that you can’t configure the control plane when you use EKS.
 
-# Create storage
+- EKS Setup: EKS involves setting up a cluster and node groups.
 
-## Check storage class
+### Cluster Setup
 
-```shell
-kubectl get storageclass
+- The cluster role is relatively straightforward. It should have the following policy attached:
+
+```
+AmazonEKSClusterPolicy
 ```
 
-Sample output:
+### Node Group Setup
 
-```shell
-NAME   PROVISIONER             RECLAIMPOLICY   VOLUMEBINDINGMODE      ALLOWVOLUMEEXPANSION   AGE
-gp2    kubernetes.io/aws-ebs   Delete          WaitForFirstConsumer   false                  18h
+The node group must use a role that is different from the cluster role. At a minimum, it should have these policies:
+
+```
+AmazonEKSWorkerNodePolicy
+AmazonEC2ContainerRegistryReadOnly
+AmazonEKS_CNI_Policy
+AmazonEMRReadOnlyAccessPolicy_v2
 ```
 
-## Create Persistent Volume
+You may need to add additional policies depending on your own use cases. For example, you would need to add additional policies to manage S3 access.
 
+### Connecting via Port Forwarding
 
+- Set up port-forwarding to `postgresql-service`
 
-## Create Persistent Volume Claim
-
-- A request to use Persistent Volume by user
+```
+kubectl port-forward service/postgresql-service 5433:5432 &
+```
 
