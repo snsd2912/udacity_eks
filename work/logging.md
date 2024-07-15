@@ -9,19 +9,18 @@ All you need to do is run a couple of short commands on your terminal:
 - Step 1. Attach the CloudWatchAgentServerPolicy IAM policy to your worker nodes:
 
 ```
-aws iam attach-role-policy \
---role-name my-worker-node-role \
---policy-arn arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
+aws iam attach-role-policy --role-name EKSNodeGroupRole --policy-arn arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
 ```
 
-Replace my-worker-node-role with your EKS cluster's Node Group's IAM role.
+Replace `EKSNodeGroupRole` with your EKS cluster's Node Group's IAM role.
 
 - Step 2. Use AWS CLI to install the Amazon CloudWatch Observability EKS add-on:
 
 ```
 aws eks create-addon --addon-name amazon-cloudwatch-observability --cluster-name my-cluster-name
-Replace my-cluster-name with your EKS cluster's name.
 ```
+
+Replace `my-cluster-name` with your EKS cluster's name.
 
 - Step 3. Trigger logging by accessing your application.
 

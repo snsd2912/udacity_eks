@@ -32,8 +32,14 @@ For this project, you are a DevOps engineer who will be collaborating with a tea
     - `database` folder: the k8s config for the Postgre database. SQL script to mock data is at `./data/db`.
 
 - Deploy Kubernetes services:
+    - Database deployment:
+    ![Database-Deployment](images/get_db_deployment.png)
+
     - Database service:
     ![Database-Service](images/get_db_svc.png)
+
+    - Application deployment:
+    ![Application-Deployment](images/get_app_deployment.png)
 
     - Application service:
     ![Application-Service](images/get_svc.png)
@@ -49,6 +55,10 @@ For this project, you are a DevOps engineer who will be collaborating with a tea
 - CloudWatch Container Insights logs:
 ![CCI-Logs](images/get_cloudwatch.png)
 ![Log-Event](images/get_log_event.png)
+
+- Health Check Logs:
+
+![Healthcheck-Log](images/get_healthcheck.png)
 
 ## Automate Deployment Process
 

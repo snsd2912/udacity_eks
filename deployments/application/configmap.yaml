@@ -5,6 +5,6 @@ metadata:
 data:
   DB_NAME: mydatabase
   DB_USERNAME: postgre
-  DB_HOST: "10.100.6.65"
+  DB_HOST: "10.100.63.211"
   DB_PORT: "5432"
   
